@@ -4,14 +4,10 @@
         <title>AngularJS</title>
     </head>
     <body>
+        <div header></div>
+        <!--<div ng-include src="'view/partials/header.html'"></div>-->
         <div ng-view></div>
-        <div>
-            Redirection:
-            <a href="#/">Home</a>
-            <a href="#/view1">View1</a>
-            <a href="#/view2">View2</a>
-            <a href="#/helloworld">Helloworld</a>
-        </div>
+        <div footer></div>
         <script src="../angular.js"></script>
         <script src="../angular-route.js"></script>
         <script src="./scripts/common.js"></script>

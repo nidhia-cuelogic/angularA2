@@ -6,6 +6,12 @@ function SimpleController($scope) {
         {name: 'Gurjot', age: 24, designation: 'dev1'}
     ]
 }
+function customUrl($scope,$routeParams){
+    $scope.model={
+        message:$routeParams.id
+    };
+    
+}
 var controllerArray = {};
 controllerArray.SimpleController = SimpleController;
 var demoApp = angular.module('demoApp', ['ngRoute'])
@@ -19,6 +25,19 @@ var demoApp = angular.module('demoApp', ['ngRoute'])
                 templateUrl: 'view/view2.html'
             }).when('/helloworld', {
                 templateUrl: 'view/helloworld.html'
-            }).otherwise({redirectTo:'/'});
+            }).when('/customUrl/:id', {
+                controller:'customUrl',
+                templateUrl: 'view/customUrl.html'
+            }).otherwise({redirectTo: '/'});
         })
-        .controller(controllerArray);
+        .controller(controllerArray)
+        .controller('customUrl',customUrl)
+        .directive('footer', function() {
+            return {
+                templateUrl: "view/partials/footer.html"
+            }
+        }).directive('header', function() {
+            return {
+                templateUrl: "view/partials/header.html"
+            }
+        });
