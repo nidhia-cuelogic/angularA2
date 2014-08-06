@@ -13,6 +13,12 @@ var demoApp = angular.module('demoApp', ['ngRoute'])
             $routeProvider.when('/', {
                 controller: 'SimpleController',
                 templateUrl: 'view/main.html'
-            });
+            }).when('/view1', {
+                templateUrl: 'view/view1.html'
+            }).when('/view2', {
+                templateUrl: 'view/view2.html'
+            }).when('/helloworld', {
+                templateUrl: 'view/helloworld.html'
+            }).otherwise({redirectTo:'/'});
         })
         .controller(controllerArray);
